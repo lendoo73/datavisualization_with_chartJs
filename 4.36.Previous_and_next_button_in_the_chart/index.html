@@ -11,10 +11,10 @@
     <div class="chartMenu">
         <p>
             <span>Chart JS 3.7.0 </span>
-            <a href="../4.35.Clickable_Pie_and_Doughnut_Slices_with_Link/">
+            <a href="../4.37.Doughnut_chart_with_text_label_in_the_center/">
                 <button class="scale">&rarr;</button>
             </a>
-            <a href="../4.33.Show_Dotted_Dashed_Line_Chart_for_Segment/">
+            <a href="../4.35.Clickable_Pie_and_Doughnut_Slices_with_Link/">
                 <button class="scale">&larr;</button>
             </a>
         </p>
@@ -22,6 +22,8 @@
     <div class="chartCard">
         <div class="chartBox">
             <canvas id="myChart"></canvas>
+            <button id="previousButton" onclick="weekData(-6, -6)">Previous</button>
+            <button id="nextButton" onclick="weekData(6, 6)">Next</button>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
