@@ -126,7 +126,7 @@ const config = {
             // remove tooltip from Arrow Bar
             tooltip: {
                 filter: (tooltipItem) => {
-                    console.log(tooltipItem);
+                    //console.log(tooltipItem);
                     return tooltipItem.datasetIndex === 0;
                 } 
             },
