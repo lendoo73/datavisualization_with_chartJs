@@ -20,27 +20,52 @@ const data = {
             'rgba(153, 102, 255, 1)',
             'rgba(255, 159, 64, 1)'
         ],
-        borderWidth: 1
+        borderWidth: 1,
+        cutout: "90%"
     }]
+};
+
+// hoverLabels plugin block
+const hoverLabels = {
+    id: "hoverLabels",
+    afterDatasetsDraw(chart, args, options) {
+        const { ctx, chartArea: { top, bottom, left, right, width, height } } = chart;
+        ctx.save();
+        
+//        console.log(chart._active);
+//        console.log(top);
+//        console.log(height);
+        
+        if (chart._active[0]) {
+//            console.log(chart.config.data.labels[chart._active[0].index]);
+//            console.log(chart.config.data.datasets[chart._active[0].datasetIndex].data[chart._active[0].index]);
+//            console.log(chart.config.data.datasets[chart._active[0].datasetIndex].borderColor[chart._active[0].index]);
+//            console.log(chart._active[0].datasetIndex);
+//            console.log(chart._active[0].index);
+            const textLabel = chart.config.data.labels[chart._active[0].index];
+            const dataLabel = chart.config.data.datasets[chart._active[0].datasetIndex].data[chart._active[0].index];
+            const color = chart.config.data.datasets[chart._active[0].datasetIndex].borderColor[chart._active[0].index];
+            ctx.font = "bolder 60px Arial";
+            ctx.fillStyle = color;
+            ctx.textAlign = "center";
+            ctx.fillText(`${textLabel}: $${dataLabel}`, width / 2, height / 2 + 25);0
+        }
+        ctx.restore();  
+    }
 };
 
 // config block
 const config = {
-    type: 'bar',
+    type: 'doughnut',
     data: data,
     options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        },
         plugins: {
-            title: {
-                display: true,
-                text: 'Smooth line chart'
+            legend: {
+                display: false
             }
         }
-    }
+    },
+    plugins: [hoverLabels]
 };
 
 // init render block

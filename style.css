@@ -42,3 +42,7 @@
     border: solid 3px rgba(75, 192, 192, 1);
     background: white;
 }
+
+.center {
+    text-align: center;
+}
