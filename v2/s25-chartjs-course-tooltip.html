@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/x-icon" href="" />
+    <link rel="stylesheet" href="../style.css" />
+
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <header>
+        <div class="chartMenu">
+            <p>
+                <span class="active">Chart JS 2</span>
+                <a href="s26-chartjs-course-color-management-gradient.html">
+                    <button class="scale">&rarr;</button>
+                </a>
+                <a href="s24-chartjs-chart_legend_html_version.html">
+                    <button class="scale">&larr;</button>
+                </a>
+                <a class="navButton" href="../">
+                    <span>Chart JS 3.7.0</span>
+                </a>
+            </p>
+        </div>
+    </header>
+    <div class="chartCard">
+        <div class="chartBox">
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+
+<script>
+var ctx = document.getElementById('myChart').getContext('2d');
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'line',
+
+    // The data for our dataset
+    data: {
+        labels: ["January", "February", "March", "April", "May", "June", "July"],
+        datasets: [{
+            label: "My First dataset",
+            backgroundColor: 'rgba(0, 150, 132, 0.5)',
+            borderColor: 'rgb(0, 150, 132)',
+            data: [0, 10, 5, 2, 20, 30, 45],
+        },
+        {
+            label: "My Second dataset",
+//            backgroundColor: 'rgb(0, 0, 132)',
+            borderColor: 'rgb(0, 0, 132)',
+            data: [20, 20, 25, 22, 15, 20, 20],
+        }]
+    },
+
+    // Configuration options go here
+    options: {
+        tooltips: {
+            enable: true,
+            mode: "index", // index, dataset, nearest
+            intersect: false,
+            position: "nearest", // average
+            backgroundColor: "rgb(0, 0, 132)",
+//            titleFontFamily: "New Times Roman",
+            titleFontSize: 16,
+            titleFontStyle: "normal", // italic, oblique, bold
+            titleFontColor: "yellow",
+            titleSpacing: 10,
+            titleMarginBottom: 15,
+//            bodyFontFamily: "New Times Roman",
+            bodyFontSize: 16,
+            bodyFontStyle: "bold",
+            bodyFontColor: "orange",
+            bodySpacing: 5,
+            xPadding: 20,
+            yPadding: 20,
+            caretPadding: 10,
+            caretSize: 15,
+            cornerRadius: 50,
+            multiKeyBackground: "pink",
+//            displayColors: false,
+        },
+        title: {
+            text: "Chart JS Tooltip",
+            display: true,
+            fontSize: 20,
+            //fontFamily: "New Times Roman",
+            fontColor: 'green',
+            fontStyle: "bold",
+            padding: 5,
+            lineHeight: 1.2,
+        }
+    }
+});
+</script>
+
+  </body>
+</html>
+
+
+
+
+

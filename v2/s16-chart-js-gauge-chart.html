@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/x-icon" href="" />
+    <link rel="stylesheet" href="../style.css" />
+
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <header>
+        <div class="chartMenu">
+            <p>
+                <span class="active">Chart JS 2</span>
+                <a href="s17-chartjs-course-polar-chart.html">
+                    <button class="scale">&rarr;</button>
+                </a>
+                <a href="s16-chartjs-course-pie-chart.html">
+                    <button class="scale">&larr;</button>
+                </a>
+                <a class="navButton" href="../">
+                    <span>Chart JS 3.7.0</span>
+                </a>
+            </p>
+        </div>
+    </header>
+    <div class="chartCard">
+        <div class="chartBox">
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+
+    <script>
+var ctx = document.getElementById('myChart').getContext('2d');
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'doughnut',
+
+    // The data for our dataset
+    data: {
+        labels: ["January", "February", "March"],
+        datasets: [{
+            label: "My First dataset",
+            backgroundColor: ["grey", "red", "grey"],
+            borderColor: "black",
+            hoverBackgroundColor: "black",
+            hoverBorderColor: ["grey", "red", "grey"],
+            borderWidth: 0,
+            hoverBorderWidth: 2,
+            data: [45, 1, 10],
+        }]
+    },
+
+    // Configuration options go here
+    options: {
+        cutoutPercentage: 80,
+        rotation: 0.8 * Math.PI,
+        circumference: 1.4 * Math.PI,
+        animation: {
+            animateRotate: true,
+            animateScale: true,
+        }
+    }
+});
+
+    </script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  </body>
+</html>

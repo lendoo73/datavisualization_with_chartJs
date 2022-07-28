@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/x-icon" href="" />
+    <link rel="stylesheet" href="../style.css" />
+
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <header>
+        <div class="chartMenu">
+            <p>
+                <span class="active">Chart JS 2</span>
+                <a href="s15-chartjs-course-radar-chart.html">
+                    <button class="scale">&rarr;</button>
+                </a>
+                <a href="s13-chartjs-course-line-chart.html">
+                    <button class="scale">&larr;</button>
+                </a>
+                <a class="navButton" href="../">
+                    <span>Chart JS 3.7.0</span>
+                </a>
+            </p>
+        </div>
+    </header>
+    <div class="chartCard">
+        <div class="chartBox">
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+
+<script>
+
+var image = document.getElementById('source');
+var ctx = document.getElementById('myChart').getContext('2d');
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'horizontalBar',
+
+    // The data for our dataset
+    data: {
+        labels: ["January", "February", "March", "April", "May", "June", "July"],
+        datasets: [{
+            label: "Monthly Sales",
+            backgroundColor: "red",
+            borderColor: "black",
+            borderWidth: 2,
+            borderSkipped: "top",
+            hoverBackgroundColor: "#000",
+            //hoverBorderColor: ["red","yellow","green","blue","purple","orange","grey"], 
+            hoverBorderWidth: 5,
+            data: [20, 10, 5, 2, 20, 30, 45],
+        },
+        {
+            label: "Monthly Profits",
+            backgroundColor: "green",
+            borderColor: "black",
+            data: [20, 10, 5, 2, 20, 30, 45],
+        }
+        ]
+    },
+
+    // Configuration options go here
+    options: {
+        scales: {
+            xAxes: [{
+                //barPercentage: 1,
+                //categoryPercentage: 1,
+                barThickness: 40,
+                maxBarThickness: 30,
+                gridLines: {
+                    offsetGridLines: false,
+                },
+                stacked: true,
+            }],
+            yAxes: [{
+                stacked: true,
+            }],
+        }
+    }
+});
+
+</script>
+
+
+
+  </body>
+</html>

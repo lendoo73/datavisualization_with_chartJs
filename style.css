@@ -1,3 +1,9 @@
+:root {
+    --navBarFgColor: rgba(75, 192, 192, 1);
+    --navBarColorChannel: rgba(75, 192, 192, 0.2);
+    --active: yellow;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -8,12 +14,16 @@
     width: 100vw;
     height: 46px;
     background: #1A1A1A;
-    color: rgba(75, 192, 192, 1);
+    color: var(--navBarFgColor);
 }
 
 .chartMenu p {
     padding: 10px;
     font-size: 20px;
+}
+
+.active {
+    color: var(--active);
 }
 
 .chartMenu a {
@@ -23,13 +33,23 @@
 
 .chartMenu a button {
     padding: 0px 20px;
-    transform: scale(1.7)
+    transform: scale(1.7);
+    cursor: pointer;
+}
+
+.navButton {
+    color: var(--navBarFgColor);
+    text-decoration: none;
+}
+
+.navButton:hover {
+    color: var(--active);
 }
 
 .chartCard {
     width: 100vw;
     height: calc(100vh - 40px);
-    background: rgba(75, 192, 192, 0.2);
+    background: var(--navBarColorChannel);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -39,7 +59,7 @@
     width: 700px;
     padding: 20px;
     border-radius: 20px;
-    border: solid 3px rgba(75, 192, 192, 1);
+    border: solid 3px var(--navBarFgColor);
     background: white;
 }
 

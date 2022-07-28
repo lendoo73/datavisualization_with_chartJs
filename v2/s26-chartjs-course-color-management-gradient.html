@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/x-icon" href="" />
+    <link rel="stylesheet" href="../style.css" />
+
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <header>
+        <div class="chartMenu">
+            <p>
+                <span class="active">Chart JS 2</span>
+                <a href="s26a-chartjs-course-chart-colors.html">
+                    <button class="scale">&rarr;</button>
+                </a>
+                <a href="s25-chartjs-course-tooltip.html">
+                    <button class="scale">&larr;</button>
+                </a>
+                <a class="navButton" href="../">
+                    <span>Chart JS 3.7.0</span>
+                </a>
+            </p>
+        </div>
+    </header>
+    <div class="chartCard">
+        <div class="chartBox">
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+
+<script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    
+    const gradient = ctx.createLinearGradient(450, 0, 0, 0);
+    gradient.addColorStop(0, "rgb(0, 99, 132)");
+    gradient.addColorStop(1, "rgb(255, 99, 132)");
+    
+    const gradient2 = ctx.createLinearGradient(0, 200, 0, 0);
+    gradient2.addColorStop(0, "rgb(0, 99, 132)");
+    gradient2.addColorStop(1, "rgb(255, 99, 132)");
+
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'line',
+
+        // The data for our dataset
+        data: {
+            labels: ["January", "February", "March", "April", "May", "June", "July"],
+            datasets: [{
+                label: "My First dataset",
+//                backgroundColor: gradient,
+                borderColor: gradient,
+                data: [0, 10, 5, 100, 20, 100, 45],
+            },
+            {
+                label: "My Second dataset",
+//                backgroundColor: gradient,
+                borderColor: gradient2,
+                data: [100, 50, 50, 10, 40, 10, 10],
+            }]
+        },
+
+        // Configuration options go here
+        options: {
+            title: {
+                text: "Chart JS Gradient",
+                display: true,
+                fontSize: 20,
+                //fontFamily: "New Times Roman",
+                fontColor: 'green',
+                fontStyle: "bold",
+                padding: 5,
+                lineHeight: 1.2,
+            }
+        }
+    });
+</script>
+
+  </body>
+</html>
+
+
+
+
+

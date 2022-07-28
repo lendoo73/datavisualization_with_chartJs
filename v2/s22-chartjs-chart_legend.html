@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/x-icon" href="" />
+    <link rel="stylesheet" href="../style.css" />
+
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <header>
+        <div class="chartMenu">
+            <p>
+                <span class="active">Chart JS 2</span>
+                <a href="s24-chartjs-chart_legend_html_version.html">
+                    <button class="scale">&rarr;</button>
+                </a>
+                <a href="s21-chartjs-course-mixed-charts.html">
+                    <button class="scale">&larr;</button>
+                </a>
+                <a class="navButton" href="../">
+                    <span>Chart JS 3.7.0</span>
+                </a>
+            </p>
+        </div>
+    </header>
+    <div class="chartCard">
+        <div class="chartBox">
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+
+<script>
+
+const alertBox = () => {
+    alert("this works");
+};
+    
+const changeFontColor = () => {
+    chart.options.legend.labels.fontColor = "orange";
+};
+    
+var ctx = document.getElementById('myChart').getContext('2d');
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'line',
+
+    // The data for our dataset
+    data: {
+        labels: ["January", "February", "March", "April", "May", "June", "July"],
+        datasets: [{
+            label: "My First dataset",
+            backgroundColor: 'rgba(255, 99, 132, 0.5)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [0, 10, 5, 2, 20, 30, 45],
+            pointStyle: "line"
+        },
+        {
+            label: "My Second dataset",
+            backgroundColor: 'rgba(0, 99, 132, 0.5)',
+            borderColor: 'rgb(0, 99, 132)',
+            data: [40, 10, 35, 32, 20, 30, 45],
+            pointStyle: "rect"
+        },
+        {
+            label: "My Third dataset",
+            backgroundColor: 'rgba(0, 0, 132, 0.5)',
+            borderColor: 'rgb(0, 0, 132)',
+            data: [29, 10, 25, 22, 20, 30, 45],
+            pointStyle: "star"
+        }]
+    },
+
+    // Configuration options go here
+    options: {
+        legend: {
+            display: true,
+            position: "left", // top, right, left
+            reverse: true, 
+            labels: {
+                boxWidth: 5,
+                fontSize: 15,
+                fontStyle: "bold", // italic, oblique, bold, normal
+                fontColor: "red", // #000
+                fontFamily: "New Times Roman",
+                padding: 50,
+                usePointStyle: true
+            },
+            onClick: alertBox,
+            onHover: changeFontColor,
+        }
+    }
+});
+    
+</script>
+
+  </body>
+</html>
+
+
+
+
+

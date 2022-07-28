@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/x-icon" href="" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="../style.css" />
+
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <header>
+        <div class="chartMenu">
+            <p>
+                <span class="active">Chart JS 2</span>
+                <a href="s30-chartjs-dinamic-chart-with-db.php">
+                    <button class="scale btn btn-outline-secondary btn-sm">&rarr;</button>
+                </a>
+                <a href="s29-chartjs-update-function.html">
+                    <button class="scale btn btn-outline-secondary btn-sm">&larr;</button>
+                </a>
+                <a class="navButton" href="../">
+                    <span>Chart JS 3.7.0</span>
+                </a>
+            </p>
+        </div>
+    </header>
+    <div class="chartCard">
+        <div class="chartBox">
+            <canvas id="myChart"></canvas>
+            <button class="btn btn-success mb-1" onclick="add()" >Add</button>
+            <button class="btn btn-success mb-1" onclick="replace()" >Replace</button>
+        </div>
+    </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+
+<script>
+    
+let oldData = [0, 10, 5, 2, 20, 30, 45];
+
+let oldLabels = ["January", "February", "March", "April", "May", "June", "July"];
+    
+    
+var ctx = document.getElementById('myChart').getContext('2d');
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'line',
+
+    // The data for our dataset
+    data: {
+        labels: [...oldLabels],
+        datasets: [{
+            label: "My First dataset",
+            backgroundColor: 'rgba(0, 159, 0, 0.5)',
+            borderColor: 'rgba(0, 159, 0, 0.5)',
+            data: [...oldData],
+        },
+        {
+            label: "My Second dataset",
+            backgroundColor: 'rgba(99, 159, 0, 0.5)',
+            borderColor: 'rgba(99, 159, 0, 0.5)',
+            data: [10, 20, 25, 22, 21, 29, 10],
+        }]
+    },
+
+    // Configuration options go here
+    options: {
+        title: {
+            text: ["Update function"],
+            display: true,
+            fontSize: 20,
+            //fontFamily: "New Times Roman",
+            fontColor: 'green',
+            fontStyle: "bold",
+            padding: 5,
+            lineHeight: 1.2,
+        }
+    }
+});
+    
+const randNumber = () => {
+    return Math.random() * 45;
+};
+
+const add = () => {
+    chart.data.labels.push("August");
+    chart.data.datasets.forEach((dataset) => {
+        dataset.data.push(randNumber());
+    });
+    chart.update();
+};
+
+const replace = () => {
+    chart.data.datasets[0].data = [10, 20, 15, 12, 11, 19, 22];
+    chart.data.labels = ["August", "September", "October", "November", "December", "January", "February"];
+    chart.update();
+};
+    
+</script>
+
+  </body>
+</html>
+
+
+
+
+
